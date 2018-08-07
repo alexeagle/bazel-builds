@@ -2,7 +2,7 @@
 #
 # Use of this source code is governed by an MIT-style license that can be
 # found in the LICENSE file at https://angular.io/license
-"""Implementation of the ng_module rule.
+"""Run Angular's template compiler
 """
 
 load(":rules_typescript.bzl",
@@ -453,7 +453,9 @@ def _ng_module_impl(ctx):
 NG_MODULE_ATTRIBUTES = {
     "srcs": attr.label_list(allow_files = [".ts"]),
 
-    "deps": attr.label_list(aspects = DEPS_ASPECTS + [_collect_summaries_aspect]),
+    # Note: DEPS_ASPECTS is already a list, we add the cast to workaround
+    # https://github.com/bazelbuild/skydoc/issues/21
+    "deps": attr.label_list(aspects = list(DEPS_ASPECTS) + [_collect_summaries_aspect]),
 
     "assets": attr.label_list(allow_files = [
       ".css",

@@ -10,13 +10,13 @@
     "xi18n": "./src/ngc-wrapped/extract_i18n.js",
     "modify_tsconfig": "./src/modify_tsconfig.js"
   },
+  "typings": "./src/ngc-wrapped/index.d.ts",
   "bazelWorkspaces": {
     "angular": {
       "version": "8.0.0-beta.3+181.sha-8accc98",
       "rootPath": "."
     }
   },
-  "typings": "./src/ngc-wrapped/index.d.ts",
   "dependencies": {
     "@angular-devkit/architect": "^0.10.6",
     "@angular-devkit/core": "^7.0.4",
@@ -30,7 +30,7 @@
     "tsickle": "0.34.0"
   },
   "peerDependencies": {
-    "@angular/compiler-cli": "8.0.0-beta.3+181.sha-8accc98",
+    "@angular/compiler-cli": "0.0.0",
     "typescript": ">=3.1.1 <3.3"
   },
   "repository": {
@@ -60,8 +60,5 @@
       "@angular/language-service",
       "@angular/service-worker"
     ]
-  },
-  "scripts": {
-    "postinstall": "node ./check_version.js"
   }
 }
